@@ -1,11 +1,16 @@
-import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function App() {
+  const [message, setMessage] = useState("");
+  const handleAlert = (e) => {
+    setMessage(e);
+    console.log(message);
+  };
   return (
     <View style={styles.container}>
       <Text>Hola Leo!</Text>
-      <TextInput style={styles.text} />
+      <TextInput style={styles.text} onChangeText={handleAlert} />
     </View>
   );
 }
