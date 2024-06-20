@@ -1,16 +1,20 @@
 import { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function App() {
   const [message, setMessage] = useState("");
-  const handleAlert = (e) => {
+  const handleChange = (e) => {
     setMessage(e);
     console.log(message);
+  };
+  const handleAlert = () => {
+    Alert.alert("Message", message);
   };
   return (
     <View style={styles.container}>
       <Text>Hola Leo!</Text>
-      <TextInput style={styles.text} onChangeText={handleAlert} />
+      <TextInput style={styles.text} onChangeText={handleChange} />
+      <Button onPress={handleAlert} title="Aceptar" />
     </View>
   );
 }
