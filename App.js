@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: "#6f6f6f",
+    marginTop: 20,
   },
   text: {
     fontSize: 16,
@@ -90,7 +91,9 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginTop: 20,
+    flexDirection: "row",
     justifyContent: "space-between",
+    height: 40,
   },
   addButton: {
     width: Dimensions.get("screen").width * 0.25,
