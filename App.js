@@ -19,11 +19,11 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Mis Tareas</Text>
+      <Text style={styles.title}>Mis Tareas por hacer</Text>
       <View style={styles.inputContainer}>
         <TextInput style={styles.textInput} onChangeText={handleChange} />
-        <TouchableOpacity>
-          <Text>Agregar</Text>
+        <TouchableOpacity style={styles.addButton}>
+          <Text style={styles.whitetext}>Agregar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -48,11 +48,21 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   textInput: {
-    width: Dimensions.get("screen").width * 0.7,
+    width: Dimensions.get("screen").width * 0.6,
     borderColor: "#6f6f6f",
     borderWidth: 1,
+    borderRadius: 10,
+    paddingLeft: 15,
   },
   inputContainer: {
     marginTop: 20,
+    justifyContent: "space-between",
+  },
+  addButton: {
+    width: Dimensions.get("screen").width * 0.25,
+    backgroundColor: "#5897fb",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
   },
 });
