@@ -1,12 +1,12 @@
 import { useState } from "react";
 import {
   Alert,
-  Button,
   Dimensions,
   StyleSheet,
   Text,
   TextInput,
   View,
+  TouchableOpacity,
 } from "react-native";
 
 export default function App() {
@@ -19,9 +19,13 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Text>Mis Tareas</Text>
-      <TextInput style={styles.text} onChangeText={handleChange} />
-      <Button onPress={handleAlert} title="Aceptar" />
+      <Text style={styles.title}>Mis Tareas</Text>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.textInput} onChangeText={handleChange} />
+        <TouchableOpacity>
+          <Text>Agregar</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -42,5 +46,13 @@ const styles = StyleSheet.create({
   whitetext: {
     fontSize: 16,
     color: "#fff",
+  },
+  textInput: {
+    width: Dimensions.get("screen").width * 0.7,
+    borderColor: "#6f6f6f",
+    borderWidth: 1,
+  },
+  inputContainer: {
+    marginTop: 20,
   },
 });
