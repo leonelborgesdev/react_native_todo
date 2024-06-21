@@ -17,7 +17,12 @@ const tasks = [
     date: new Date(),
   },
   {
-    title: "Alimentar al perro",
+    title: "Regar las plantas",
+    done: false,
+    date: new Date(),
+  },
+  {
+    title: "Salir a correr",
     done: false,
     date: new Date(),
   },
@@ -32,8 +37,12 @@ export default function App() {
     Alert.alert("Message", message);
   };
 
-  function renderItem(item) {
-    return <Text>Esto es un item</Text>;
+  function renderItem({ item: task }) {
+    return (
+      <View style={styles.itemContainer}>
+        <Text style={styles.text}>{task.title}</Text>
+      </View>
+    );
   }
   return (
     <View style={styles.container}>
@@ -91,4 +100,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   scrollContainer: {},
+  itemContainer: {
+    paddingVertical: 20,
+    borderBottomColor: "#e4e4e4",
+    borderBottomWidth: 1,
+  },
 });
