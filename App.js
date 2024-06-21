@@ -5,7 +5,6 @@ export default function App() {
   const [message, setMessage] = useState("");
   const handleChange = (e) => {
     setMessage(e);
-    console.log(message);
   };
   const handleAlert = () => {
     Alert.alert("Message", message);
