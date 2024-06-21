@@ -7,7 +7,21 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
+
+const tasks = [
+  {
+    title: "Alimentar al perro",
+    done: false,
+    date: new Date(),
+  },
+  {
+    title: "Alimentar al perro",
+    done: false,
+    date: new Date(),
+  },
+];
 
 export default function App() {
   const [message, setMessage] = useState("");
@@ -17,14 +31,25 @@ export default function App() {
   const handleAlert = () => {
     Alert.alert("Message", message);
   };
+
+  function renderItem(item) {
+    return <Text>Esto es un item</Text>;
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.textInput} onChangeText={handleChange} />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Agregar una nueva tarea ..."
+          onChangeText={handleChange}
+        />
         <TouchableOpacity style={styles.addButton}>
           <Text style={styles.whitetext}>Agregar</Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.scrollContainer}>
+        <FlatList renderItem={renderItem} data={tasks} />
       </View>
     </View>
   );
@@ -65,4 +90,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
   },
+  scrollContainer: {},
 });
