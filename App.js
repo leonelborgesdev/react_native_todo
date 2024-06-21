@@ -31,12 +31,16 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 20,
   },
+  title: {
+    fontSize: 20,
+    color: "#6f6f6f",
+  },
   text: {
-    borderColor: "#999",
-    borderWidth: 1,
-    borderRadius: 5,
-    margin: 5,
-    width: Dimensions.get("screen").width * 0.7,
-    height: 40,
+    fontSize: 16,
+    color: "#6f6f6f",
+  },
+  whitetext: {
+    fontSize: 16,
+    color: "#fff",
   },
 });
