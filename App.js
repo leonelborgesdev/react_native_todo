@@ -116,6 +116,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F33D3D",
     justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal: 15,
+    borderRadius: 10,
   },
   addButton: {
     width: Dimensions.get("screen").width * 0.25,
@@ -124,10 +126,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
   },
-  scrollContainer: {},
+  scrollContainer: {
+    marginTop: 20,
+  },
   itemContainer: {
     paddingVertical: 20,
     borderBottomColor: "#e4e4e4",
     borderBottomWidth: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
