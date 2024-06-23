@@ -48,11 +48,11 @@ export default function App() {
             {task.date.toLocaleDateString()}
           </Text>
         </TouchableOpacity>
-        {
+        {item.done && (
           <TouchableOpacity style={styles.removeButtom}>
             <Text style={styles.whitetext}>Eliminar</Text>
           </TouchableOpacity>
-        }
+        )}
       </View>
     );
   }
@@ -114,6 +114,8 @@ const styles = StyleSheet.create({
   },
   removeButtom: {
     backgroundColor: "#F33D3D",
+    justifyContent: "center",
+    alignItems: "center",
   },
   addButton: {
     width: Dimensions.get("screen").width * 0.25,
