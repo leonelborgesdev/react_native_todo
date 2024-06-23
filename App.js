@@ -41,9 +41,18 @@ export default function App() {
     return (
       <View style={styles.itemContainer}>
         <TouchableOpacity>
-          <Text style={styles.text}>{task.title}</Text>
-          <Text style={styles.text}>{task.date.toLocaleDateString()}</Text>
+          <Text style={task.done ? styles.textDone : styles.text}>
+            {task.title}
+          </Text>
+          <Text style={task.done ? styles.textDone : styles.text}>
+            {task.date.toLocaleDateString()}
+          </Text>
         </TouchableOpacity>
+        {
+          <TouchableOpacity style={styles.removeButtom}>
+            <Text style={styles.whitetext}>Eliminar</Text>
+          </TouchableOpacity>
+        }
       </View>
     );
   }
@@ -81,6 +90,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#6f6f6f",
   },
+  textDone: {
+    fontSize: 16,
+    color: "#6f6f6f",
+    textDecorationLine: "line-through",
+  },
   whitetext: {
     fontSize: 16,
     color: "#fff",
@@ -97,6 +111,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     height: 40,
+  },
+  removeButtom: {
+    backgroundColor: "#F33D3D",
   },
   addButton: {
     width: Dimensions.get("screen").width * 0.25,
