@@ -23,7 +23,7 @@ const tasks = [
   },
   {
     title: "Salir a correr",
-    done: false,
+    done: true,
     date: new Date(),
   },
 ];
@@ -40,7 +40,10 @@ export default function App() {
   function renderItem({ item: task }) {
     return (
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>{task.title}</Text>
+        <TouchableOpacity>
+          <Text style={styles.text}>{task.title}</Text>
+          <Text style={styles.text}>{task.date.toLocaleDateString()}</Text>
+        </TouchableOpacity>
       </View>
     );
   }
