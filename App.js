@@ -21,7 +21,7 @@ export default function App() {
     const newTask = {
       title: text,
       done: false,
-      date: new date(),
+      date: new Date(),
     };
     tmp.push(newTask);
     setTasks(tmp);
@@ -33,11 +33,13 @@ export default function App() {
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Agregar una nueva tarea ..."
-          onChangeText={(t) => setText(t)}
+          onChangeText={(t) => {
+            setText(t);
+          }}
           value={text}
           style={styles.textInput}
         />
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} onPress={addTask}>
           <Text style={styles.whitetext}>Agregar</Text>
         </TouchableOpacity>
       </View>
