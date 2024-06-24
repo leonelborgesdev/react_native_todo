@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles.js";
 
 export default function RenderItem(props) {
+  const [text, setText] = useState("");
   const handleRemove = () => {
     console.log("removeItem");
   };

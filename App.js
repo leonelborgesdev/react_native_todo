@@ -29,21 +29,20 @@ const tasks = [
 ];
 
 export default function App() {
-  const [message, setMessage] = useState("");
-  const handleChange = (e) => {
-    setMessage(e);
-  };
+  const [text, setText] = useState("");
   const handleAlert = () => {
     Alert.alert("Message", message);
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.textInput}
           placeholder="Agregar una nueva tarea ..."
-          onChangeText={handleChange}
+          onChangeText={(t) => setText(t)}
+          value={text}
+          style={styles.textInput}
         />
         <TouchableOpacity style={styles.addButton}>
           <Text style={styles.whitetext}>Agregar</Text>
