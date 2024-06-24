@@ -10,30 +10,23 @@ import {
   FlatList,
 } from "react-native";
 
-const tasks = [
-  {
-    title: "Alimentar al perro",
-    done: false,
-    date: new Date(),
-  },
-  {
-    title: "Regar las plantas",
-    done: false,
-    date: new Date(),
-  },
-  {
-    title: "Salir a correr",
-    done: true,
-    date: new Date(),
-  },
-];
-
 export default function App() {
   const [text, setText] = useState("");
+  const [tasks, setTasks] = useState([]);
   const handleAlert = () => {
     Alert.alert("Message", message);
   };
-
+  const addTask = () => {
+    const tmp = [...tasks];
+    const newTask = {
+      title: text,
+      done: false,
+      date: new date(),
+    };
+    tmp.push(newTask);
+    setTasks(tmp);
+    setText("");
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
