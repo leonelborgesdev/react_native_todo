@@ -5,7 +5,11 @@ import styles from "./styles.js";
 export default function RenderItem({ task, handleMarkDone, handleRemove }) {
   return (
     <View style={styles.itemContainer}>
-      <TouchableOpacity onPress={handleMarkDone}>
+      <TouchableOpacity
+        onPress={() => {
+          handleMarkDone(task);
+        }}
+      >
         <Text style={task.done ? styles.textDone : styles.text}>
           {task.title}
         </Text>

@@ -30,7 +30,12 @@ export default function App() {
   const handleRemove = () => {
     console.log("removeItem removiendo");
   };
-  const handleMarkDone = () => {
+  const handleMarkDone = (task) => {
+    const tmp = [...tasks];
+    const index = tmp.findIndex((elem) => elem.title === task.title);
+    const todo = tmp[index];
+    todo.done = !todo.done;
+    setTasks(tmp);
     console.log("markDone tachando");
   };
   return (
