@@ -27,6 +27,12 @@ export default function App() {
     setTasks(tmp);
     setText("");
   };
+  const handleRemove = () => {
+    console.log("removeItem removiendo");
+  };
+  const handleMarkDone = () => {
+    console.log("markDone tachando");
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
@@ -45,7 +51,13 @@ export default function App() {
       </View>
       <View style={styles.scrollContainer}>
         <FlatList
-          renderItem={({ item: task }) => <RenderItem {...task} />}
+          renderItem={({ item: task }) => (
+            <RenderItem
+              task={task}
+              handleMarkDone={handleMarkDone}
+              handleRemove={handleRemove}
+            />
+          )}
           data={tasks}
         />
       </View>
