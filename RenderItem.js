@@ -14,7 +14,7 @@ export default function RenderItem({ task, handleMarkDone, handleRemove }) {
           {task.title}
         </Text>
         <Text style={task.done ? styles.textDone : styles.text}>
-          {task.date.toLocaleDateString()}
+          {new Date(task.date).toLocaleDateString()}
         </Text>
       </TouchableOpacity>
       {task.done && (
