@@ -25,7 +25,10 @@ export default function App() {
     setText("");
   };
   const handleRemove = (task) => {
-    console.log("removeItem removiendo", task.title);
+    const tmp = [...tasks];
+    const index = tmp.findIndex((elem) => elem.title === task.title);
+    tmp.splice(index, 1);
+    setTasks(tmp);
   };
   const handleMarkDone = (task) => {
     const tmp = [...tasks];
