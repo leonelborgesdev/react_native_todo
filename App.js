@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+import uuid from "react-native-uuid";
 
 export default function App() {
   const [text, setText] = useState("");
@@ -61,7 +62,6 @@ export default function App() {
     todo.done = !todo.done;
     setTasks(tmp);
     storeData(tmp);
-    console.log("markDone tachando");
   };
   return (
     <View style={styles.container}>
