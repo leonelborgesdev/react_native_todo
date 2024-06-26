@@ -18,7 +18,12 @@ export default function RenderItem({ task, handleMarkDone, handleRemove }) {
         </Text>
       </TouchableOpacity>
       {task.done && (
-        <TouchableOpacity style={styles.removeButtom} onPress={handleRemove}>
+        <TouchableOpacity
+          style={styles.removeButtom}
+          onPress={() => {
+            handleRemove(task);
+          }}
+        >
           <Text style={styles.whitetext}>Eliminar</Text>
         </TouchableOpacity>
       )}

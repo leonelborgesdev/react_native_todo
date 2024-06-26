@@ -13,9 +13,6 @@ import {
 export default function App() {
   const [text, setText] = useState("");
   const [tasks, setTasks] = useState([]);
-  const handleAlert = () => {
-    Alert.alert("Message", message);
-  };
   const addTask = () => {
     const tmp = [...tasks];
     const newTask = {
@@ -27,8 +24,8 @@ export default function App() {
     setTasks(tmp);
     setText("");
   };
-  const handleRemove = () => {
-    console.log("removeItem removiendo");
+  const handleRemove = (task) => {
+    console.log("removeItem removiendo", task.title);
   };
   const handleMarkDone = (task) => {
     const tmp = [...tasks];
