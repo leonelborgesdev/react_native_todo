@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./styles.js";
 import RenderItem from "./RenderItem.js";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   Alert,
   Text,
@@ -23,6 +24,13 @@ export default function App() {
     tmp.push(newTask);
     setTasks(tmp);
     setText("");
+  };
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("my-key", value);
+    } catch (e) {
+      // saving error
+    }
   };
   const handleRemove = (task) => {
     const tmp = [...tasks];
