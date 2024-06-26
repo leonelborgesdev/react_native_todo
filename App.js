@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.js";
 import RenderItem from "./RenderItem.js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -23,30 +23,36 @@ export default function App() {
     };
     tmp.push(newTask);
     setTasks(tmp);
+    storeData(tmp);
     setText("");
   };
   const storeData = async (value) => {
     try {
-      await AsyncStorage.setItem("my-key", value);
+      await AsyncStorage.setItem("mytodo-tasks", JSON.stringify(value));
     } catch (e) {
       // saving error
     }
   };
   const getData = async () => {
     try {
-      const value = await AsyncStorage.getItem("my-key");
+      const value = await AsyncStorage.getItem("mytodo-tasks");
       if (value !== null) {
-        // value previously stored
+        const tasksLocal = JSON.parse(value);
+        setTasks(tasksLocal);
       }
     } catch (e) {
       // error reading value
     }
   };
+  useEffect(() => {
+    getData();
+  }, []);
   const handleRemove = (task) => {
     const tmp = [...tasks];
     const index = tmp.findIndex((elem) => elem.title === task.title);
     tmp.splice(index, 1);
     setTasks(tmp);
+    storeData(tmp);
   };
   const handleMarkDone = (task) => {
     const tmp = [...tasks];
@@ -54,6 +60,7 @@ export default function App() {
     const todo = tmp[index];
     todo.done = !todo.done;
     setTasks(tmp);
+    storeData(tmp);
     console.log("markDone tachando");
   };
   return (
