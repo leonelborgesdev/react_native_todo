@@ -18,6 +18,7 @@ export default function App() {
   const addTask = () => {
     const tmp = [...tasks];
     const newTask = {
+      idTask: uuid.v4(),
       title: text,
       done: false,
       date: new Date(),
@@ -50,14 +51,14 @@ export default function App() {
   }, []);
   const handleRemove = (task) => {
     const tmp = [...tasks];
-    const index = tmp.findIndex((elem) => elem.title === task.title);
+    const index = tmp.findIndex((elem) => elem.idTask === task.idTask);
     tmp.splice(index, 1);
     setTasks(tmp);
     storeData(tmp);
   };
   const handleMarkDone = (task) => {
     const tmp = [...tasks];
-    const index = tmp.findIndex((elem) => elem.title === task.title);
+    const index = tmp.findIndex((elem) => elem.idTask === task.idTask);
     const todo = tmp[index];
     todo.done = !todo.done;
     setTasks(tmp);
