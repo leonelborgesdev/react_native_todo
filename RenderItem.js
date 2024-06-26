@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles.js";
 
-export default function RenderItem({ task, handleMarkDone, handleRemove }) {
+export default function RenderItem({ task, handleMarkDone, handleRemoveAert }) {
   return (
     <View style={styles.itemContainer}>
       <TouchableOpacity
@@ -21,7 +21,7 @@ export default function RenderItem({ task, handleMarkDone, handleRemove }) {
         <TouchableOpacity
           style={styles.removeButtom}
           onPress={() => {
-            handleRemove(task);
+            handleRemoveAert(task);
           }}
         >
           <Text style={styles.whitetext}>Eliminar</Text>

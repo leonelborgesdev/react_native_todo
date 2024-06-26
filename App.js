@@ -56,6 +56,23 @@ export default function App() {
     setTasks(tmp);
     storeData(tmp);
   };
+  const handleRemoveAert = (task) => {
+    Alert.alert(
+      "Confirmar",
+      `¿Esta seguro/a de que desea eliminar la tarea '${task.title}'?`,
+      [
+        {
+          text: "Si",
+          onPress: () => handleRemove(task),
+        },
+        {
+          text: "No",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "No",
+        },
+      ]
+    );
+  };
   const handleMarkDone = (task) => {
     const tmp = [...tasks];
     const index = tmp.findIndex((elem) => elem.idTask === task.idTask);
@@ -86,7 +103,7 @@ export default function App() {
             <RenderItem
               task={task}
               handleMarkDone={handleMarkDone}
-              handleRemove={handleRemove}
+              handleRemoveAert={handleRemoveAert}
             />
           )}
           data={tasks}
