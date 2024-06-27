@@ -68,7 +68,7 @@ export default function App() {
         {
           text: "No",
           onPress: () => console.log("Cancel Pressed"),
-          style: "No",
+          style: "cancel",
         },
       ]
     );
