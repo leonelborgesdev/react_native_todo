@@ -15,6 +15,7 @@ import uuid from "react-native-uuid";
 export default function App() {
   const [text, setText] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [showTasks, setShowTasks] = useState([]);
   const addTask = () => {
     const tmp = [...tasks];
     const newTask = {
@@ -25,6 +26,7 @@ export default function App() {
     };
     tmp.push(newTask);
     setTasks(tmp);
+    setShowTasks(tmp);
     storeData(tmp);
     setText("");
   };
@@ -54,6 +56,7 @@ export default function App() {
     const index = tmp.findIndex((elem) => elem.idTask === task.idTask);
     tmp.splice(index, 1);
     setTasks(tmp);
+    setShowTasks(tmp);
     storeData(tmp);
   };
   const handleRemoveAert = (task) => {
@@ -79,12 +82,18 @@ export default function App() {
     const todo = tmp[index];
     todo.done = !todo.done;
     setTasks(tmp);
+    setShowTasks(tmp);
     storeData(tmp);
   };
   const handleFilterByTytle = (title) => {
     setText(title);
     const tmp = tasks.filter((elem) => elem.title === title);
     console.log(tmp);
+    if (tmp.length > 0) {
+      setShowTasks(tmp);
+    } else {
+      setShowTasks(tasks);
+    }
   };
   return (
     <View style={styles.container}>
@@ -111,7 +120,7 @@ export default function App() {
               handleRemoveAert={handleRemoveAert}
             />
           )}
-          data={tasks}
+          data={showTasks}
         />
       </View>
     </View>
