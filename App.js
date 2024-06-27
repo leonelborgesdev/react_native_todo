@@ -81,6 +81,11 @@ export default function App() {
     setTasks(tmp);
     storeData(tmp);
   };
+  const handleFilterByTytle = (title) => {
+    setText(title);
+    const tmp = tasks.filter((elem) => elem.title === title);
+    console.log(tmp);
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
@@ -88,7 +93,7 @@ export default function App() {
         <TextInput
           placeholder="Agregar una nueva tarea ..."
           onChangeText={(t) => {
-            setText(t);
+            handleFilterByTytle(t);
           }}
           value={text}
           style={styles.textInput}
